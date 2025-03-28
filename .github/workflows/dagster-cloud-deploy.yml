@@ -71,7 +71,7 @@ jobs:
         uses: dagster-io/dagster-cloud-action/actions/utils/dagster-cloud-cli@v0.1
         with:
           command: >
-            ci set-build-output
+            ci init
             --project-dir ${{ env.DAGSTER_PROJECT_DIR }}
             --dagster-cloud-yaml-path ${{ env.DAGSTER_CLOUD_YAML_PATH }}
             --deployment-name=${{ env.DAGSTER_CLOUD_DEPLOYMENT }}
@@ -95,18 +95,19 @@ jobs:
       # registry.
       # Multiple examples are provided below.
 
-      # # AWS ECR
-      # # https://github.com/aws-actions/amazon-ecr-login
-      # - name: Configure AWS credentials
-      #   if: steps.prerun.outputs.result != 'skip'
-      #   uses: aws-actions/configure-aws-credentials@v2
-      #   with:
-      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      #     aws-region:  ${{ secrets.AWS_REGION }}
-      # - name: Login to ECR
-      #   if: steps.prerun.outputs.result != 'skip'
-      #   uses: aws-actions/amazon-ecr-login@v1
+       # AWS ECR
+       # https://github.com/aws-actions/amazon-ecr-login
+      - name: Configure AWS credentials
+        if: steps.prerun.outputs.result != 'skip'
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region:  ${{ secrets.AWS_REGION }}
+
+      - name: Login to ECR
+        if: steps.prerun.outputs.result != 'skip'
+        uses: aws-actions/amazon-ecr-login@v1
 
       # # DockerHub
       # # https://github.com/docker/login-action#docker-hub
