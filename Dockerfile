@@ -1,5 +1,9 @@
-FROM python:3.8-slim
+FROM python:3.11-slim
 # Add any steps to install project system dependencies like java
+
+RUN apt update && apt install -y build-essential
+RUN pip install --upgrade pip setuptools wheel
+
 
 WORKDIR /opt/dagster/app
 
