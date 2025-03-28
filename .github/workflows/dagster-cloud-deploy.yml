@@ -23,7 +23,7 @@ env:
   DAGSTER_CLOUD_YAML_PATH: "dagster_cloud.yaml"
   DAGSTER_BUILD_STATEDIR: "/tmp/statedir-${{ github.run_id }}"
   # The IMAGE_REGISTRY should match the 'registry:'' in dagster_cloud.yaml
-  IMAGE_REGISTRY: 696822819628.dkr.ecr.us-east-1.amazonaws.com/dagster/user-code"
+  IMAGE_REGISTRY: "696822819628.dkr.ecr.us-east-1.amazonaws.com/dagster/user-code"
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   FAKE_GIT_URL: "https://gitlab-ci-token:glcbt-99_some-garbage-string@gitlab.com/fake/it/till/you/make/it.git"
 
