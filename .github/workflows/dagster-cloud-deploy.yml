@@ -74,7 +74,7 @@ jobs:
             ci init
             --project-dir ${{ env.DAGSTER_PROJECT_DIR }}
             --dagster-cloud-yaml-path ${{ env.DAGSTER_CLOUD_YAML_PATH }}
-            --deployment-name=${{ env.DAGSTER_CLOUD_DEPLOYMENT }}
+            --deployment ${{ env.DAGSTER_CLOUD_DEPLOYMENT }}
             --location-name=quickstart_etl
             --status-url=${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
             --git-url=${{ env.FAKE_GIT_URL }}
