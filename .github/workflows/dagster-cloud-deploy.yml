@@ -107,7 +107,7 @@ jobs:
 
       - name: Login to ECR
         if: steps.prerun.outputs.result != 'skip'
-        uses: aws-actions/amazon-ecr-login@v1
+        uses: aws-actions/amazon-ecr-login@v2
 
       # # DockerHub
       # # https://github.com/docker/login-action#docker-hub
