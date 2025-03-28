@@ -88,7 +88,7 @@ jobs:
         run: echo "IMAGE_TAG=$GITHUB_SHA-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" >> $GITHUB_ENV && echo $IMAGE_TAG
 
       - name: Set up docker
-        uses: docker/setup-docker-actions@v4
+        uses: docker/setup-docker-action@v4
         with:
           daemon-config: |
             {
